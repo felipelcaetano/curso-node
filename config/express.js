@@ -12,11 +12,11 @@ module.exports = function() {
 
     //A ordem dos middlewares importam muito
     //Verifica cada um dos formatos que está sendo recebido
+    app.use(expressValidator());
     app.use(bodyParser.urlencoded({
         extended: true
     }));
     app.use(bodyParser.json());
-    app.use(expressValidator());
 
     load('routes', {cwd: 'app'})
         .then('infra')
